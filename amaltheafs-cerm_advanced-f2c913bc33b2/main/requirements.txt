@@ -3,4 +3,3 @@ plotly==5.10.0
 mpld3==0.5.8
 scipy==1.7.3
 tk==0.1.0
-Portfolio
