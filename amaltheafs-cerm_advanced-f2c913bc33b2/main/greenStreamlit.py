@@ -23,7 +23,7 @@ import pickle as pkle
 from utils import correlation_from_covariance
 
 # Template portfolio
-portfolio_path = 'portfolio1000loans.dump'
+portfolio_path = './portfolio1000loans.dump'
 portfolio = load_from_file(portfolio_path)
 
 ## Styling 
