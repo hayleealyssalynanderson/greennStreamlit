@@ -1,5 +1,6 @@
 # Package Imports 
 from locale import D_FMT
+import os
 import streamlit as st
 st.set_page_config(layout="wide")
 import pandas as pd
@@ -23,7 +24,10 @@ import pickle as pkle
 from utils import correlation_from_covariance
 
 # Template portfolio
-portfolio_path = 'portfolio1000loans.dump'
+dumpFileName = 'portfolio1000loans.dump'
+
+myCwd = os.getcwd();
+portfolio_path = os.path.join(myCwd, dumpFileName)
 portfolio = load_from_file(portfolio_path)
 
 ## Styling 
