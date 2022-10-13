@@ -89,7 +89,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #transition efficiency coefficient (reduced)
-    alpha = st.sidebar.slider( 'Alpha ', min_value=0.001, step=0.001, max_value=0.5, value=.02, format="%f")
+    alpha = st.sidebar.slider( 'Alpha ', min_value=0.001, step=0.001, max_value=0.500, value=.02, format="%f")
     st.sidebar.markdown( """ 
                             <p style= font-size:12px;color:#898A8B;margin-top:-100px;margin-left:40px;'>
                              transition efficiency coefficient (reduced)
@@ -97,7 +97,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #transition effort reactivity coefficient
-    beta = st.sidebar.slider( 'Beta', min_value=0.001, step=0.001, max_value=5.0, value=1.5, format="%f")
+    beta = st.sidebar.slider( 'Beta', min_value=0.001, step=0.001, max_value=5.000, value=1.5, format="%f")
     st.sidebar.markdown( """ 
                             <p style= font-size:12px;color:#898A8B;margin-top:-101px;margin-left:35px;'>
                              transition effort reactivity coefficient
@@ -105,9 +105,9 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #climate change intensity of the economic activity (idiosyncratic)
-    gamma = st.sidebar.slider( 'Gamma', min_value=0.001, step=0.001, max_value=1.0, value=0.005, format="%f", )
+    gamma = st.sidebar.slider( 'Gamma', min_value=0.001, step=0.001, max_value=1.000, value=0.005, format="%f", )
     st.sidebar.markdown( """ 
-                        <p style= font-size:11px;color:#898A8B;margin-top:-99px;margin-left:50px;'>
+                        <p style= font-size:11px;color:#898A8B;margin-top:-99px;margin-left:55px;'>
                          climate change intensity of economic activity
                         </p>
                     """, unsafe_allow_html=True
@@ -121,7 +121,7 @@ def sideBar():
                     """, unsafe_allow_html=True
                     )
     #idiosyncratic economic risk    
-    e = st.sidebar.slider( 'e', min_value=0.001, step=0.001, max_value=1.0, value=0.10)
+    e = st.sidebar.slider( 'e', min_value=0.001, step=0.001, max_value=1.000, value=0.10)
     st.sidebar.markdown( """ 
                     <p style= font-size:12px;color:#898A8B;margin-top:-100px;margin-left:20px;'>
                      idiosyncratic economic risk
@@ -129,7 +129,7 @@ def sideBar():
                 """, unsafe_allow_html=True
                 )
     #idiosyncratic physical risk
-    p = st.sidebar.slider( 'p', min_value=0.001,step=0.001, max_value=1.0,value=0.10)
+    p = st.sidebar.slider( 'p', min_value=0.001,step=0.001, max_value=1.000,value=0.10)
     st.sidebar.markdown( """ 
                 <p style= font-size:12px;color:#898A8B;margin-top:-100px;margin-left:20px;'>
                  idiosyncratic physical risk
@@ -156,6 +156,7 @@ def sideBar():
         
     ## Run Model Button Click
     if st.sidebar.button('Run Model'):
+        st.write('')
         st.markdown("### LargeCERMEngine ")
         scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
         loan_analysis()  
