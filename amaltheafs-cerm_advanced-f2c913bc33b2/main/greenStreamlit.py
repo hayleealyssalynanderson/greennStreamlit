@@ -89,7 +89,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #transition efficiency coefficient (reduced)
-    alpha = st.sidebar.slider( 'Alpha ', 0.01, 0.05, value=.02)
+    alpha = st.sidebar.slider( 'Alpha ', min_value=0.001, step=0.001, max_value=0.5, value=.02, format="%f")
     st.sidebar.markdown( """ 
                             <p style= font-size:12px;color:#898A8B;margin-top:-100px;margin-left:40px;'>
                             -- transition efficiency coefficient (reduced)
@@ -97,7 +97,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #transition effort reactivity coefficient
-    beta = st.sidebar.slider( 'Beta', 0.0, 5.0, value=1.5)
+    beta = st.sidebar.slider( 'Beta', min_value=0.001, step=0.001, max_value=5.0, value=1.5, format="%f")
     st.sidebar.markdown( """ 
                             <p style= font-size:13px;color:#898A8B;margin-top:-101px;margin-left:35px;'>
                             -- transition effort reactivity coefficient
@@ -107,7 +107,7 @@ def sideBar():
     #climate change intensity of the economic activity (idiosyncratic)
     #st.sidebar.slider( label="test", min_value=0.000, step=0.001, max_value=0.005, value=0.045, format="%f", )
 
-    gamma = st.sidebar.slider( 'Gamma', min_value=0.000, step=0.001, max_value=0.010, value=0.005, format="%f", )
+    gamma = st.sidebar.slider( 'Gamma', min_value=0.001, step=0.001, max_value=1.0, value=0.005, format="%f", )
     st.sidebar.markdown( """ 
                         <p style= font-size:11px;color:#898A8B;margin-top:-99px;margin-left:50px;'>
                         -- climate change intensity of economic activity
@@ -123,7 +123,7 @@ def sideBar():
                     """, unsafe_allow_html=True
                     )
     #idiosyncratic economic risk    
-    e = st.sidebar.slider( 'e', 0.01, 0.10,value=0.10)
+    e = st.sidebar.slider( 'e', min_value=0.001, step=0.001, max_value=1.0, value=0.10)
     st.sidebar.markdown( """ 
                     <p style= font-size:13px;color:#898A8B;margin-top:-100px;margin-left:20px;'>
                     -- idiosyncratic economic risk
@@ -131,7 +131,7 @@ def sideBar():
                 """, unsafe_allow_html=True
                 )
     #idiosyncratic physical risk
-    p = st.sidebar.slider( 'p', 0.01, 0.10,value=0.10)
+    p = st.sidebar.slider( 'p', min_value=0.001,step=0.001, max_value=1.0,value=0.10)
     st.sidebar.markdown( """ 
                 <p style= font-size:13px;color:#898A8B;margin-top:-100px;margin-left:20px;'>
                 -- idiosyncratic physical risk
@@ -139,7 +139,7 @@ def sideBar():
             """, unsafe_allow_html=True
             )
     #independent transition coefficient
-    theta = st.sidebar.slider( 'theta', 0.01, 0.20,value=0.10)
+    theta = st.sidebar.slider( 'theta', min_value=0.001, step=0.001, max_value=0.3,value=0.10)
     st.sidebar.markdown( """ 
             <p style= font-size:13px;color:#898A8B;margin-top:-100px;margin-left:40px;'>
             -- independent transition coefficient
