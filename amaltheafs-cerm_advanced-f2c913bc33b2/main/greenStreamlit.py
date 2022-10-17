@@ -63,8 +63,7 @@ for file in uploaded_files:
         myCwd = os.getcwd();
         portfolio_path = os.path.join(myCwd, dumpFilePath)
         portfolio = load_from_file(portfolio_path)
-if file is None:
-    st.warning('this did nto work')
+
 ## App Heading 
 def heading():
 
