@@ -22,6 +22,7 @@ from ScenarioGenerator import ScenarioGenerator
 from LargeCERMEngine import LargeCERMEngine
 import pickle as pkle
 from utils import correlation_from_covariance
+from PIL import Image
 
 # Template portfolio
 dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
@@ -47,7 +48,9 @@ theme = """
 
 ## App Heading 
 def heading():
-    
+    rwa_finastra_logos = Image.open('./logos/rwa_finastra_logos.png')
+    st.sidebar.image(rwa_finastra_logos,width=130)
+
     st.markdown("""
         <h1 style='text-align: center; margin-bottom: -35px;'>
         Green RWA
