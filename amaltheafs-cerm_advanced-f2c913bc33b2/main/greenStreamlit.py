@@ -58,7 +58,12 @@ for file in uploaded_files:
                     bytes_data = file.read()
                     f.write(bytes_data)
                     portfolio = load_from_file(file.name)
-    else:
+    elif file.type == "application/octet-stream":
+        dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
+        myCwd = os.getcwd();
+        portfolio_path = os.path.join(myCwd, dumpFilePath)
+        portfolio = load_from_file(portfolio_path)
+    elif uploaded_files is None:
         dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
         myCwd = os.getcwd();
         portfolio_path = os.path.join(myCwd, dumpFilePath)
