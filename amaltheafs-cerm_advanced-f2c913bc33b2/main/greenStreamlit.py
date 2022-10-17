@@ -45,7 +45,7 @@ theme = """
     base="light"
     primaryColor="#4cb744"
 """
-image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
+image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/fin_rwa.png'
 myCwd = os.getcwd();
 logo_path = os.path.join(myCwd, image)
 st.sidebar.image(logo_path,width=130)
@@ -65,11 +65,8 @@ for file in uploaded_files:
         portfolio = load_from_file(portfolio_path)
 
 
-
 ## App Heading 
 def heading():
-   
-
 
     st.markdown("""
         <h1 style='text-align: center; margin-bottom: -35px;'>
