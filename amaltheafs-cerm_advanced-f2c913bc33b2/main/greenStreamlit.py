@@ -51,9 +51,8 @@ def heading():
     image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
     myCwd = os.getcwd();
     logo_path = os.path.join(myCwd, image)
-    load_image = load_from_file(logo_path)
     #rwa_finastra_logos = Image.open('./logos/rwa_finastra_logos.png')
-    st.sidebar.image(load_image,width=130)
+    st.sidebar.image(logo_path,width=130)
 
 
     st.markdown("""
