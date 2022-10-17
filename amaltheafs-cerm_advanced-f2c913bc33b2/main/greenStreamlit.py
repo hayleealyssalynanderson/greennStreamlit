@@ -63,8 +63,8 @@ for file in uploaded_files:
         myCwd = os.getcwd();
         portfolio_path = os.path.join(myCwd, dumpFilePath)
         portfolio = load_from_file(portfolio_path)
-
-
+if uploaded_files is None:
+    st.warning('pleas eadd portfol')
 ## App Heading 
 def heading():
 
