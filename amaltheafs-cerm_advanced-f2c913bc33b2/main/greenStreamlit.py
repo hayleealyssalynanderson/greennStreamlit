@@ -171,11 +171,16 @@ def sideBar():
     ## Run Model Button Click
     if st.sidebar.button('Run Model'):
         st.write('')
-        st.markdown("### LargeCERMEngine ")
-        scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
-        loan_analysis()  
+        if not uploaded_files:
+            st.sidebar.error('Please Upload file')
+        else: 
+            st.markdown("### LargeCERMEngine ")
+            scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
+            loan_analysis()  
 
     st.markdown(button_style, unsafe_allow_html=True)
+    st.sidebar.text("")
+    st.sidebar.text("")
     st.sidebar.text("")
     st.sidebar.text("")
 
