@@ -45,6 +45,12 @@ theme = """
     base="light"
     primaryColor="#4cb744"
 """
+image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
+myCwd = os.getcwd();
+logo_path = os.path.join(myCwd, image)
+st.sidebar.image(logo_path,width=130)
+st.sidebar.markdown('**Upload Portfolio:**')        
+
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
 for file in uploaded_files:
     if file.type == "application/octet-stream":
@@ -61,10 +67,7 @@ for file in uploaded_files:
 
 ## App Heading 
 def heading():
-    image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
-    myCwd = os.getcwd();
-    logo_path = os.path.join(myCwd, image)
-    st.sidebar.image(logo_path,width=130)
+   
 
 
     st.markdown("""
@@ -85,7 +88,6 @@ def heading():
     
 ## SideBar Parameters 
 def sideBar():
-    st.sidebar.markdown('**Upload Portfolio:**')        
 
     ### Parameters
     st.sidebar.markdown('**Set Parameters:**')
