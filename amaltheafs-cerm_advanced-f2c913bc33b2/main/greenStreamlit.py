@@ -48,7 +48,7 @@ theme = """
 image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/fin_rwa.png'
 myCwd = os.getcwd();
 logo_path = os.path.join(myCwd, image)
-st.sidebar.image(logo_path,width=150)
+st.sidebar.image(logo_path,width=160)
 st.sidebar.markdown('**Upload Portfolio:**')        
 
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
