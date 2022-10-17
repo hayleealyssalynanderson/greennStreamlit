@@ -47,6 +47,7 @@ theme = """
 
 ## App Heading 
 def heading():
+    
     st.markdown("""
         <h1 style='text-align: center; margin-bottom: -35px;'>
         Green RWA
