@@ -25,11 +25,11 @@ from utils import correlation_from_covariance
 from PIL import Image
 
 # Template portfolio
-dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
+#dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
 
-myCwd = os.getcwd();
-portfolio_path = os.path.join(myCwd, dumpFilePath)
-portfolio = load_from_file(portfolio_path)
+#myCwd = os.getcwd();
+#portfolio_path = os.path.join(myCwd, dumpFilePath)
+#portfolio = load_from_file(portfolio_path)
 
 ## Styling 
 button_style = """
@@ -45,13 +45,22 @@ theme = """
     base="light"
     primaryColor="#4cb744"
 """
+uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
+for file in uploaded_files:
+    if file.type == "application/octet-stream":
+        portfolio = load_from_file(file.name)
+    else:
+        with open(file.name, "wb") as f:
+            bytes_data = file.read()
+            f.write(bytes_data)
+            portfolio = load_from_file(file.name)
+
 
 ## App Heading 
 def heading():
     image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
     myCwd = os.getcwd();
     logo_path = os.path.join(myCwd, image)
-    #rwa_finastra_logos = Image.open('./logos/rwa_finastra_logos.png')
     st.sidebar.image(logo_path,width=130)
 
 
@@ -73,13 +82,7 @@ def heading():
     
 ## SideBar Parameters 
 def sideBar():
-    st.sidebar.markdown('**Upload Portfolio:**')
-
-    ### Upload Portfolio
-    uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
-    for uploaded_file in uploaded_files:
-        bytes_data = uploaded_file.read()
-        
+    st.sidebar.markdown('**Upload Portfolio:**')        
 
     ### Parameters
     st.sidebar.markdown('**Set Parameters:**')
