@@ -48,7 +48,7 @@ theme = """
 
 ## App Heading 
 def heading():
-    image = './logos/rwa_finastra_logos.png'
+    image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/rwa_finastra_logos.png'
     myCwd = os.getcwd();
     logo_path = os.path.join(myCwd, image)
     load_image = load_from_file(logo_path)
