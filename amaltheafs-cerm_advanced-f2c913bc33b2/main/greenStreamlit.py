@@ -48,8 +48,13 @@ theme = """
 
 ## App Heading 
 def heading():
-    rwa_finastra_logos = Image.open('./logos/rwa_finastra_logos.png')
-    st.sidebar.image(rwa_finastra_logos,width=130)
+    image = './logos/rwa_finastra_logos.png'
+    myCwd = os.getcwd();
+    logo_path = os.path.join(myCwd, image)
+    load_image = load_from_file(logo_path)
+    #rwa_finastra_logos = Image.open('./logos/rwa_finastra_logos.png')
+    st.sidebar.image(load_image,width=130)
+
 
     st.markdown("""
         <h1 style='text-align: center; margin-bottom: -35px;'>
@@ -75,6 +80,7 @@ def sideBar():
     uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         bytes_data = uploaded_file.read()
+        
 
     ### Parameters
     st.sidebar.markdown('**Set Parameters:**')
