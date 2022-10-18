@@ -53,9 +53,11 @@ st.sidebar.markdown('**Upload Portfolio:**')
 
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
 for file in uploaded_files:
-    portfolio = load_from_file(file.name)
-
-
+    with open(file.name, "wb") as f:
+        bytes_data = file.read()
+        f.write(bytes_data)
+        portfolio = load_from_file(file.name)
+   
 ## App Heading 
 def heading():
 
@@ -163,6 +165,7 @@ def sideBar():
     ## Run Model Button Click
     if st.sidebar.button('Run Model'):
         st.write('')
+        
         if not uploaded_files:
             st.sidebar.error('Please Upload file')
         else: 
