@@ -59,10 +59,10 @@ for file in uploaded_files:
                     f.write(bytes_data)
                     portfolio = load_from_file(file.name)
     else:
-        dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
-        myCwd = os.getcwd();
-        portfolio_path = os.path.join(myCwd, dumpFilePath)
-        portfolio = load_from_file(portfolio_path)
+        #dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
+        #myCwd = os.getcwd();
+        #portfolio_path = os.path.join(myCwd, dumpFilePath)
+        portfolio = load_from_file(file.name)
 
 ## App Heading 
 def heading():
