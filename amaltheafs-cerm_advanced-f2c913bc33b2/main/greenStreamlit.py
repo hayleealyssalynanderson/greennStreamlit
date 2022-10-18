@@ -56,7 +56,6 @@ for file in uploaded_files:
     if file.type == "text/csv":
         portfolio = load_from_file(file.name)
         print('dump',portfolio)
-        st.write(file.name)
    # if file.type == "text/csv":
     else: 
         with open(file.name, "wb") as f:
@@ -65,7 +64,7 @@ for file in uploaded_files:
             f.write(bytes_data)
             #print(f)
             portfolio = load_from_file(file.name)
-            
+
             #print('csv',portfolio)
             #st.write(file.name)
      #    with open(file.name, "wb") as f:
