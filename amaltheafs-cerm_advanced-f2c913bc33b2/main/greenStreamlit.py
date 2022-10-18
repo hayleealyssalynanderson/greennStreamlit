@@ -103,7 +103,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #transition efficiency coefficient (reduced)
-    alpha = st.sidebar.slider( 'Alpha ', min_value=0.001, step=0.001, max_value=0.500, value=.02, format="%f")
+    alpha = st.sidebar.slider( 'Alpha ', min_value=0.001, step=0.001, max_value=0.1, value=.02, format="%f")
     st.sidebar.markdown( """ 
                             <p style= font-size:12px;color:#898A8B;margin-top:-100px;margin-left:40px;'>
                              transition efficiency coefficient (reduced)
@@ -119,7 +119,7 @@ def sideBar():
                         """, unsafe_allow_html=True
                         )
     #climate change intensity of the economic activity (idiosyncratic)
-    gamma = st.sidebar.slider( 'Gamma', min_value=0.001, step=0.001, max_value=1.00, value=0.005, format="%f", )
+    gamma = st.sidebar.slider( 'Gamma', min_value=0.001, step=0.001, max_value=1.00, value=0.1, format="%f", )
     st.sidebar.markdown( """ 
                         <p style= font-size:11px;color:#898A8B;margin-top:-99px;margin-left:55px;'>
                          climate change intensity of economic activity
