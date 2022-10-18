@@ -51,11 +51,10 @@ logo_path = os.path.join(myCwd, image)
 st.sidebar.image(logo_path,width=130)
 st.sidebar.markdown('**Upload Portfolio:**')        
 
-uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
+uploaded_files = st.sidebar.file_uploader("Select filwe", accept_multiple_files=True)
 for file in uploaded_files:
     if file.type == "text/csv":
         portfolio = load_from_file(file.name)
-        print('dump',portfolio)
     else: 
         portfolio = load_from_file(file.name)
 
