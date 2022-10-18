@@ -54,8 +54,8 @@ st.sidebar.markdown('**Upload Portfolio:**')
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
 for file in uploaded_files:
     if file.type == "application/octet-stream":
-        portfolio = load_from_file(file.name)
-        print('dump',portfolio)
+        #portfolio = load_from_file(file.name)
+       # print('dump',portfolio)
         st.write(file.name)
    # if file.type == "text/csv":
     else: 
