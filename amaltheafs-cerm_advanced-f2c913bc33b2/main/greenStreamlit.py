@@ -56,7 +56,7 @@ for file in uploaded_files:
     if file.type == "application/octet-stream":
         #portfolio = load_from_file(file.name)
        # print('dump',portfolio)
-        st.write(file.name)
+        st.write(file)
    # if file.type == "text/csv":
     else: 
         with open(file.name, "wb") as f:
