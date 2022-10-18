@@ -53,16 +53,29 @@ st.sidebar.markdown('**Upload Portfolio:**')
 
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
 for file in uploaded_files:
-    if file.type == "text/csv":
-        with open(file.name, "wb") as f:
-                    bytes_data = file.read()
-                    f.write(bytes_data)
-                    portfolio = load_from_file(file.name)
-    else:
-        #dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
-        #myCwd = os.getcwd();
-        #portfolio_path = os.path.join(myCwd, dumpFilePath)
+    if file.type == "application/octet-stream":
         portfolio = load_from_file(file.name)
+        print('dump',portfolio)
+        st.write(file.name)
+   # if file.type == "text/csv":
+    else: 
+        with open(file.name, "wb") as f:
+            st.write(file.type)
+            bytes_data = file.read()
+            f.write(bytes_data)
+            #print(f)
+            portfolio = load_from_file(file.name)
+            #print('csv',portfolio)
+            #st.write(file.name)
+     #    with open(file.name, "wb") as f:
+     #               bytes_data = file.read()
+     #               f.write(bytes_data)
+     #               portfolio = load_from_file(file.name)
+   # else:
+     #   dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
+     #   myCwd = os.getcwd();
+     #   portfolio_path = os.path.join(myCwd, dumpFilePath)
+     #   portfolio = load_from_file(portfolio_path)
 
 ## App Heading 
 def heading():
