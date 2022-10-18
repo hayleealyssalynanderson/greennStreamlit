@@ -57,10 +57,7 @@ for file in uploaded_files:
         portfolio = load_from_file(file.name)
         print('dump',portfolio)
     else: 
-        with open(file.name, "wb") as f:
-            bytes_data = file.read()
-            f.write(bytes_data)
-            portfolio = load_from_file(file.name)
+        portfolio = load_from_file(file.name)
 
             #print('csv',portfolio)
             #st.write(file.name)
