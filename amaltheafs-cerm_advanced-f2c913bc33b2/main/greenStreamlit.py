@@ -56,13 +56,10 @@ for file in uploaded_files:
     if file.type == "text/csv":
         portfolio = load_from_file(file.name)
         print('dump',portfolio)
-   # if file.type == "text/csv":
     else: 
         with open(file.name, "wb") as f:
-            st.write(file.type)
             bytes_data = file.read()
             f.write(bytes_data)
-            #print(f)
             portfolio = load_from_file(file.name)
 
             #print('csv',portfolio)
