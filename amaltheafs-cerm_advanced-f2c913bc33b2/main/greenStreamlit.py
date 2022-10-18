@@ -51,24 +51,10 @@ logo_path = os.path.join(myCwd, image)
 st.sidebar.image(logo_path,width=130)
 st.sidebar.markdown('**Upload Portfolio:**')        
 
-uploaded_files = st.sidebar.file_uploader("Select filwe", accept_multiple_files=True)
+uploaded_files = st.sidebar.file_uploader("Select file ( it worked )", accept_multiple_files=True)
 for file in uploaded_files:
-    if file.type == "text/csv":
-        portfolio = load_from_file(file.name)
-    else: 
-        portfolio = load_from_file(file.name)
+    portfolio = load_from_file(file.name)
 
-            #print('csv',portfolio)
-            #st.write(file.name)
-     #    with open(file.name, "wb") as f:
-     #               bytes_data = file.read()
-     #               f.write(bytes_data)
-     #               portfolio = load_from_file(file.name)
-   # else:
-     #   dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
-     #   myCwd = os.getcwd();
-     #   portfolio_path = os.path.join(myCwd, dumpFilePath)
-     #   portfolio = load_from_file(portfolio_path)
 
 ## App Heading 
 def heading():
