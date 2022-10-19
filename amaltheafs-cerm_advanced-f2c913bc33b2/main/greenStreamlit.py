@@ -12,7 +12,6 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 from mpld3 import plugins
-import mpld3
 import streamlit.components.v1 as components
 from plotly.subplots import make_subplots
 from Portfolio import Portfolio, load_from_file, show
@@ -23,13 +22,6 @@ from LargeCERMEngine import LargeCERMEngine
 import pickle as pkle
 from utils import correlation_from_covariance
 from PIL import Image
-
-# Template portfolio
-#dumpFilePath = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/portfolio1000loans.dump'
-
-#myCwd = os.getcwd();
-#portfolio_path = os.path.join(myCwd, dumpFilePath)
-#portfolio = load_from_file(portfolio_path)
 
 ## Styling 
 button_style = """
@@ -45,18 +37,25 @@ theme = """
     base="light"
     primaryColor="#4cb744"
 """
+
+## Logo
 image = 'amaltheafs-cerm_advanced-f2c913bc33b2/main/logos/fin_rwa.png'
 myCwd = os.getcwd();
 logo_path = os.path.join(myCwd, image)
 st.sidebar.image(logo_path,width=130)
 st.sidebar.markdown('**Upload Portfolio:**')        
 
+## Uploading Files Widget
 uploaded_files = st.sidebar.file_uploader("Select file", accept_multiple_files=True)
 for file in uploaded_files:
-    with open(file.name, "wb") as f:
-        bytes_data = file.read()
-        f.write(bytes_data)
-        portfolio = load_from_file(file.name)
+    try: 
+        portfolio_path = file.name
+        portfolio = load_from_file(portfolio_path)
+    except:
+        with open(file.name, "wb") as f:
+            bytes_data = file.read()
+            f.write(bytes_data)
+            portfolio = load_from_file(file.name)
    
 ## App Heading 
 def heading():
@@ -179,6 +178,7 @@ def sideBar():
     st.sidebar.text("")
     st.sidebar.text("")
 
+## Loan Analysis 
 def loan_analysis():
     st.write("")   
     st.write("")
@@ -197,7 +197,6 @@ def loan_analysis():
         ratings_table.index, ratings_table.columns = TEST_8_RATINGS.list(), TEST_8_RATINGS.list()
         ratings_table
            
-
     #Portfolio Loan List
     portfolio_dict = show(portfolio)
     st.markdown("""
@@ -234,6 +233,7 @@ def loan_analysis():
             """, unsafe_allow_html=True
         )
 
+# Scenario Generator Models
 def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
  
     ## --  modeling the stochastic evolution of climate:
@@ -250,8 +250,6 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
     plt.xlabel("time (years)")
     plt.legend()
     
-
-
     # we compute the climate scenario until 2 * horizon to get auto- and cross- correlations as delayed as the horizon
 
     scenario_extended = ScenarioGenerator(2 * horizon, alpha, beta, gamma, R, e, p, theta)
@@ -437,6 +435,7 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
 
     col1, col2, col3 = st.columns(3)
 
+    # Loss Distribution Graph
     with col1:
         st.pyplot(figure)
         st.write('Loss Distribution')
@@ -460,6 +459,8 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
 
     plt.legend()
     plt.show()
+
+    # Evolution of Relevant Losses Graph
     with col3:
         st.pyplot(fig1)
         st.write('Evolution of relevant losses')
@@ -488,7 +489,7 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
 
     plt.show()
 
-    
+    # Less-Scenario Graph
     with col2:
         st.pyplot(figure2)
         st.write('Loss-Scenario')
@@ -512,6 +513,7 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
         """, unsafe_allow_html=True
     )
     col3, col4 = st.columns(2)
+    
     ## Evolution of auto correlations graph 
     with col4:
         #st.plotly_chart(figur, use_container_width=False)
@@ -523,9 +525,9 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
             </p>
         """, unsafe_allow_html=True
             )
-        
+
+    ## Evolution of macro-correlations graph 
     with col3:
-        ## Evolution of macro-correlations graph 
         #st.plotly_chart(fig, use_container_width=False)
         st.pyplot(fig)
         st.write('')
@@ -536,6 +538,7 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
             </p>
         """, unsafe_allow_html=True
             )
+
 heading()
 sideBar()
 
