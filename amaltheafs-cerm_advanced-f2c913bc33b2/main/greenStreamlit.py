@@ -172,7 +172,7 @@ def sideBar():
                 st.sidebar.error('Please Upload file')
             else: 
                 st.markdown("### LargeCERMEngine ")
-                
+
                 scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
                 loan_analysis()  
 
@@ -483,6 +483,7 @@ def scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N):
     v = [0,.05,.1,.4,.6,.9,1.]
     l = list(zip(v,c))
     cmap=LinearSegmentedColormap.from_list('rg',l, N=256)
+    st.write(l)
 
     plt.scatter(cumulative_growth_factors[0], cumulative_growth_factors[1], c=scenario_losses, cmap=cmap, label="data point")
 
