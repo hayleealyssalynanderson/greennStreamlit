@@ -163,14 +163,18 @@ def sideBar():
         
     ## Run Model Button Click
     if st.sidebar.button('Run Model'):
+        MAX_LINES = 1
         st.write('')
-        
-        if not uploaded_files:
-            st.sidebar.error('Please Upload file')
-        else: 
-            st.markdown("### LargeCERMEngine ")
-            scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
-            loan_analysis()  
+        if len(uploaded_files) > MAX_LINES:
+            st.sidebar.error(f"Maximum number of files reached. Please upload only 1 File at a time. ")
+        else:
+            if not uploaded_files:
+                st.sidebar.error('Please Upload file')
+            else: 
+                st.markdown("### LargeCERMEngine ")
+                
+                scenarioGenerator(horizon, alpha, beta, gamma, R, e , p , theta, N)
+                loan_analysis()  
 
     st.markdown(button_style, unsafe_allow_html=True)
     st.sidebar.text("")
